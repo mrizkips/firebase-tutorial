@@ -63,10 +63,8 @@ class RegisterFragment : Fragment() {
     }
 
     private fun authRegister(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(
-            email,
-            password
-        )
+        // TODO 3: Lengkapi kode register user menggunakan email dan password dibawah ini
+
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this.context, "User berhasil register", Toast.LENGTH_SHORT)
@@ -107,12 +105,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun saveAllUserData(name: String, email: String, photoUrl: String, callback: () -> Unit) {
-        val uid = FirebaseAuth.getInstance().uid
-        val user = User(
-            name,
-            photoUrl,
-            email
-        )
+        // TODO 4: Lengkapi kode dibawah ini untuk menyimpan data user ke realtime database
 
         database.child("users").child(uid!!).setValue(user)
             .addOnCompleteListener { task ->

@@ -56,7 +56,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun authLogin(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
+        // TODO 5: Lengkapi kode dibawah ini untuk melakukan login
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Toast.makeText(this.requireContext(), "Berhasil login", Toast.LENGTH_SHORT).show()

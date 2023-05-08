@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun logout() {
-        Firebase.auth.signOut()
+        // TODO 6: Lengkapi kode dibawah ini untuk melakukan logout
         requireView().findNavController().navigate(R.id.action_homeFragment_to_authActivity)
         requireActivity().finish()
     }

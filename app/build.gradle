@@ -47,10 +47,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     // Firebase
-    implementation platform('com.google.firebase:firebase-bom:31.2.3')
-    implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation 'com.google.firebase:firebase-storage-ktx'
-    implementation 'com.google.firebase:firebase-database-ktx'
+    // TODO 1: Implementasi library firebase untuk authentication, realtime database, storage
 
     // Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
