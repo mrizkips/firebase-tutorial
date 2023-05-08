@@ -2,7 +2,6 @@ package com.mrizkips.firebasetutorial.fragments.auth
 
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -93,7 +92,11 @@ class RegisterFragment : Fragment() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     imageRef.downloadUrl.addOnCompleteListener {
-                        saveAllUserData(it.result.toString()) {
+                        saveAllUserData(
+                            binding.etNama.text.toString(),
+                            binding.etEmail.text.toString(),
+                            it.result.toString()
+                        ) {
                             callback()
                         }
                     }
@@ -103,12 +106,12 @@ class RegisterFragment : Fragment() {
             }
     }
 
-    private fun saveAllUserData(photoUrl: String, callback: () -> Unit) {
+    private fun saveAllUserData(name: String, email: String, photoUrl: String, callback: () -> Unit) {
         val uid = FirebaseAuth.getInstance().uid
         val user = User(
-            binding.etNama.toString(),
+            name,
             photoUrl,
-            binding.etEmail.toString()
+            email
         )
 
         database.child("users").child(uid!!).setValue(user)
